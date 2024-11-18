@@ -1,0 +1,7 @@
+build/bin
+bin/
+node_modules
+frontend/build
+frontend/dist
+temp/
+backup/
