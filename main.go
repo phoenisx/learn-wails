@@ -29,7 +29,7 @@ func main() {
 	// 'Mac' options tailor the application when running an macOS.
 	app := application.New(application.Options{
 		Name:        "learn-wails",
-		Description: "A demo of using raw HTML & CSS",
+		Description: "A demo Calculator App",
 		Services: []application.Service{
 			application.NewService(&GreetService{}),
 		},
@@ -53,9 +53,24 @@ func main() {
 			Backdrop:                application.MacBackdropTranslucent,
 			TitleBar:                application.MacTitleBarHiddenInset,
 		},
-		BackgroundColour: application.NewRGB(27, 38, 54),
-		URL:              "/",
+		BackgroundColour: application.NewRGBA(0, 0, 0, 0),
+		BackgroundType:   application.BackgroundTypeTransparent,
+		Linux: application.LinuxWindow{
+			WindowIsTranslucent: true,
+		},
+		URL:       "/",
+		MinWidth:  600,
+		MinHeight: 480,
+		MaxWidth:  600,
+		MaxHeight: 480,
+		JS:        "console.log('preload script', document.querySelector('body'))",
+		// BackgroundColour: application.NewRGB(27, 38, 54),
+		// AlwaysOnTop:      true,
+		// Frameless:        true,
 	})
+
+	// window.SetMinSize(1280, 720)
+	// window.SetMaxSize(2560, 1440)
 
 	// Create a goroutine that emits an event containing the current time every second.
 	// The frontend can listen to this event and update the UI accordingly.
