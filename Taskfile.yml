@@ -397,6 +397,8 @@ tasks:
     generates:
       - "frontend/src/lib/wailsjs/**/*"
     cmds:
+      # `rm` shell command is not cross-compatible yet. Ref: https://github.com/go-task/task/issues/197
+      - rm -rf "frontend/src/lib/wailsjs"
       # For a complete list of options, run `wails3 generate bindings -help`
       - wails3 generate bindings -d "frontend/src/lib/wailsjs" -f '{{.BUILD_FLAGS}}'
 

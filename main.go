@@ -3,6 +3,7 @@ package main
 import (
 	"embed"
 	_ "embed"
+	"learn-wails/services/calculator"
 	"log"
 	"time"
 
@@ -31,7 +32,7 @@ func main() {
 		Name:        "learn-wails",
 		Description: "A demo Calculator App",
 		Services: []application.Service{
-			application.NewService(&GreetService{}),
+			application.NewService(calculator.New()),
 		},
 		Assets: application.AssetOptions{
 			Handler: application.AssetFileServerFS(assets),
