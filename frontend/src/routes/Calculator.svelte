@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { type EventHandler } from "svelte/elements";
 	import { Calculator } from "$lib/wailsjs/learn-wails/services/calculator";
+	import { Events } from "@wailsio/runtime";
 	import { calculatorStore } from "./store.svelte";
 
 	const log = (x: string) => () => {
@@ -47,7 +48,9 @@
 		"8": [handleNumberInput, "g"],
 		"9": [handleNumberInput, "h"],
 		"×": [handleOperatorInput, "i"],
-		C: [log("Clear"), "j"],
+		C: [() => {
+			Events.Emit({name:'calculator:test', data:'Foo is not Bar'})
+		}, "j"],
 		"4": [handleNumberInput, "k"],
 		"5": [handleNumberInput, "l"],
 		"6": [handleNumberInput, "m"],

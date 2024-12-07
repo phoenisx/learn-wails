@@ -1,0 +1,15 @@
+{
+   "version": "0.2.0",
+   "configurations": [
+      {
+         "name": "Attach: Debug Wails App",
+         "type": "go",
+         "request": "attach",
+         "mode": "remote",
+         "cwd": "${workspaceFolder}",
+         // dependency on our build task, the task will be described below
+         // "preLaunchTask": "Run Delve on target",
+         "port": 2345, // Host defaults to 127.0.0.1 (localhost)
+      }
+   ]
+}

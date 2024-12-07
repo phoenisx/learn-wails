@@ -83,6 +83,8 @@ func main() {
 		}
 	}()
 
+	addEventListeners(app)
+
 	// Run the application. This blocks until the application has been exited.
 	err := app.Run()
 
