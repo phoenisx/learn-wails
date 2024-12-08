@@ -15,7 +15,7 @@ import (
 // made available to the frontend.
 // See https://pkg.go.dev/embed for more information.
 
-//go:embed frontend/build
+//go:embed all:frontend/dist
 var assets embed.FS
 
 // main function serves as the application's entry point. It initializes the application, creates a window,
@@ -68,6 +68,8 @@ func main() {
 		// BackgroundColour: application.NewRGB(27, 38, 54),
 		// AlwaysOnTop:      true,
 		// Frameless:        true,
+		DevToolsEnabled:        true,
+		OpenInspectorOnStartup: true,
 	})
 
 	// window.SetMinSize(1280, 720)
